@@ -92,7 +92,7 @@ class _TodoAppState extends State<TodoApp> {
                     TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
               ),
               subtitle: Text(
-                task.dueDate,
+                "Due Date : ${task.dueDate}",
                 style: TextStyle(color: Colors.grey),
               ),
               leading: Checkbox(
@@ -129,36 +129,16 @@ class _TodoAppState extends State<TodoApp> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           _addTask();
         },
-        child: const SizedBox(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Text(
-                  'Add Task',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                width: 0.2,
-              ),
-              Icon(
-                Icons.add,
-                weight: 20,
-              ),
-            ],
-          ),
-        ),
-        elevation: 10.0,
-        backgroundColor: Colors.lightBlueAccent,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        label: const Text("Add Task"),
+        icon: const Icon(Icons.add),
+        elevation: 10,
+        hoverColor: Colors.blueAccent,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
